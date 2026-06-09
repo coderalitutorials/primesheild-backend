@@ -271,7 +271,18 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors());
+
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173", // Vite localhost
+      "https://primesheild-frontend.vercel.app",
+      "https://primeshieldmayfair.uk",
+      "https://www.primeshieldmayfair.uk",
+    ],
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 // Root Route
